@@ -15,7 +15,7 @@ library rexi_app_codegen.builder;
 import 'package:build/build.dart';
 import 'package:source_gen/source_gen.dart';
 
-import 'src/multiplier_generator.dart';
+import 'src/validation_handler_generator.dart';
 
 Builder validationBuilder(BuilderOptions options) =>
     LibraryBuilder(ValidationHandlerGenerator(),
