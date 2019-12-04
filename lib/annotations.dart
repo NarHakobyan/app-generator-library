@@ -5,9 +5,3 @@
 class ServerValidate {
   const ServerValidate();
 }
-
-class Page {
-  final String name;
-  final String path;
-  const Page({this.name, this.path});
-}
