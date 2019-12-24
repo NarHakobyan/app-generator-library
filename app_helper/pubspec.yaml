@@ -1,0 +1,16 @@
+name: app_helper
+description: Code generator for MobX that adds support for annotating your code with @observable, @computed, @action and also creating Store classes. Stores can be created with a mixin or @store.
+version: 0.3.10+2
+authors:
+  - Narek Hakobyan <narek.hakobyan.07@gmail.com>
+
+homepage: https://github.com/mobxjs/mobx.dart
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dependencies:
+
+dev_dependencies:
+  test_coverage: ^0.4.0
+  test: ^1.9.4

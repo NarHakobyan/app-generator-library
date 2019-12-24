@@ -1,0 +1,14 @@
+targets:
+  $default:
+    builders:
+      rexi_app_codegen|validation_generator:
+        enabled: true
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+builders:
+  validation_generator:
+    import: "package:rexi_app_codegen/builder.dart"
+    builder_factories: ["validationBuilder"]
+    build_extensions: {".dart": [".validation_generator.g.part"]}
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen|combining_builder"]

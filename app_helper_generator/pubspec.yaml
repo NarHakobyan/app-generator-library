@@ -1,0 +1,24 @@
+name: rexi_app_codegen
+description: Code generator for MobX that adds support for annotating your code with @observable, @computed, @action and also creating Store classes. Stores can be created with a mixin or @store.
+version: 0.3.10+2
+authors:
+  - Narek Hakobyan <narek.hakobyan.07@gmail.com>
+
+homepage: https://github.com/mobxjs/mobx.dart
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dependencies:
+  analyzer: '>=0.36.3 <0.39.0'
+  build: ^1.1.4
+  meta: ^1.1.0
+  source_gen: ^0.9.4
+  app_helper:
+    path: ../app_helper
+
+dev_dependencies:
+  build_runner: ^1.7.2
+  build_test: ^0.10.9
+  test_coverage: ^0.4.0
+  test: ^1.9.4
