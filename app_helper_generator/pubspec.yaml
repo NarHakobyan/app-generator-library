@@ -1,4 +1,4 @@
-name: rexi_app_codegen
+name: app_helper_generator
 description: Code generator for MobX that adds support for annotating your code with @observable, @computed, @action and also creating Store classes. Stores can be created with a mixin or @store.
 version: 0.3.10+2
 authors:
