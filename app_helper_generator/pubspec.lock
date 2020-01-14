@@ -14,7 +14,7 @@ packages:
       path: "../app_helper"
       relative: true
     source: path
-    version: "0.3.10+2"
+    version: "0.0.1"
   args:
     dependency: transitive
     description:

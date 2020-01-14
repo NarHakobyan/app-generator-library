@@ -3,8 +3,8 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:analyzer/dart/element/element.dart';
+import 'package:app_helper/app_helper.dart';
 import 'package:build/build.dart';
-import 'package:app_helper/annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
 class ValidationHandlerGenerator extends Generator {
