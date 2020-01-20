@@ -23,6 +23,7 @@ class ValidationHandlerGenerator extends Generator {
       }
       if (fields.isNotEmpty) {
         final fieldsHandler = StringBuffer();
+        final resetFieldsHandler = StringBuffer();
 
         for (final field in fields) {
           final name = field.name;
@@ -31,6 +32,8 @@ if (validationError.property == '$name') {
   errors.$name = errorMessage;
 }
           """);
+          resetFieldsHandler.writeln("""
+errors.$name = null;""");
         }
         final className = classElement.name.replaceFirst('_', '');
         return """
@@ -45,12 +48,13 @@ mixin _\$${className}Validators {
       }
     }
   }
+
+  void resetErrors() {
+    $resetFieldsHandler
+  }
 }
         """;
       }
     }
-    // final productNames = topLevelNumVariables(library)
-    //     .map((element) => element.name)
-    //     .join(' * ');
   }
 }
