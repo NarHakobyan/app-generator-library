@@ -17,7 +17,8 @@ class ValidationHandlerGenerator extends Generator {
     for (final classElement in library.classes) {
       final fields = <FieldElement>[];
       for (final field in classElement.fields) {
-        if (TypeChecker.fromRuntime(ServerValidate).hasAnnotationOf(field)) {
+        if (TypeChecker.fromRuntime(ServerValidateField)
+            .hasAnnotationOf(field)) {
           fields.add(field);
         }
       }
