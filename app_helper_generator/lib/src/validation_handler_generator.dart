@@ -57,5 +57,7 @@ mixin _\$${className}Validators {
         """;
       }
     }
+
+    return '';
   }
 }
