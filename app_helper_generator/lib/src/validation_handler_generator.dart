@@ -2,6 +2,8 @@
 // for details. All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
+
 import 'package:analyzer/dart/element/element.dart';
 import 'package:app_helper/app_helper.dart';
 import 'package:build/build.dart';
@@ -9,15 +11,15 @@ import 'package:source_gen/source_gen.dart';
 
 class ValidationHandlerGenerator extends Generator {
   @override
-  String generate(LibraryReader library, BuildStep buildStep) {
+  FutureOr<String?> generate(LibraryReader library, BuildStep buildStep) {
     if (library.allElements.isEmpty) {
-      return '';
+      return null;
     }
 
     for (final classElement in library.classes) {
       final fields = <FieldElement>[];
       for (final field in classElement.fields) {
-        if (TypeChecker.fromRuntime(ServerValidateField)
+        if (TypeChecker.typeNamed(ServerValidateField, inPackage: 'app_helper')
             .hasAnnotationOf(field)) {
           fields.add(field);
         }
@@ -36,7 +38,7 @@ if (validationError.property == '$name') {
           resetFieldsHandler.writeln("""
 errors.$name = null;""");
         }
-        final className = classElement.name.replaceFirst('_', '');
+        final className = (classElement.name ?? '').replaceFirst('_', '');
         return """
 mixin _\$${className}Validators {
   final errors = ${className}Errors();
@@ -58,6 +60,6 @@ mixin _\$${className}Validators {
       }
     }
 
-    return '';
+    return null;
   }
 }
